@@ -1,4 +1,5 @@
 <script>
+	import Modal from './Modal.svelte';
 	let people = [
 		{name: 'Gael', beltcolour: 'black', age: 17, id: 1},
 		{name: 'William', beltcolour: 'black', age: 24, id: 2},
@@ -31,6 +32,8 @@ const handleClick = (e,id) => {
 // 	beltColour = e.target.value ;
 //   };
 </script>
+<!-- Import the content of the Modal component -->
+<Modal/>
 {#if num > 5}
 	<p>Greater than 20</p>
 {/if}
