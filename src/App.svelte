@@ -1,9 +1,10 @@
 <script>
 	let people = [
-		{name: 'Gael', beltcolour: 'black', age: 24, id: 1},
+		{name: 'Gael', beltcolour: 'black', age: 17, id: 1},
 		{name: 'William', beltcolour: 'black', age: 24, id: 2},
-		{name: 'Martin', beltcolour: 'black', age: 23, id: 3}
+		{name: 'Martin', beltcolour: 'black', age: 18, id: 3}
 	];
+	let num = 5;
 // used in Inline function
 const handleClick = (e,id) => {
 	people = people.filter((person) => person.id != id)
@@ -30,12 +31,18 @@ const handleClick = (e,id) => {
 // 	beltColour = e.target.value ;
 //   };
 </script>
-
+{#if num > 5}
+	<p>Greater than 20</p>
+{/if}
 <main>
 	{#each people as person (person.name)}
 		
 	<div>
 		<h4>{person.name}</h4>
+		<!-- Conditionals -->
+		{#if person.age < 18}
+			<p>Attention mineur</p>
+		{/if}
 		<p>{person.age} years old, {person.beltcolour} belt.</p>
 		<!-- In line function in the button click event -->
 		<button on:click={(e)=>
