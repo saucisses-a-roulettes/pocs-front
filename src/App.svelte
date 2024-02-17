@@ -1,6 +1,7 @@
 <script>
 	// Import component to use it in the root component
 	import Modal from './Modal.svelte';
+	let showModal = false;
 	let people = [
 		{name: 'Gael', beltcolour: 'black', age: 17, id: 1},
 		{name: 'William', beltcolour: 'black', age: 24, id: 2},
@@ -11,6 +12,9 @@
 const handleClick = (e,id) => {
 	people = people.filter((person) => person.id != id)
 	console.log(e);
+}
+const toggleModal =() =>{
+	showModal= !showModal
 }
 //   let firstName = 'Julien';
 //   let lastName = 'Grob';
@@ -33,12 +37,13 @@ const handleClick = (e,id) => {
 // 	beltColour = e.target.value ;
 //   };
 </script>
-<!-- Import the content of the Modal component -->
-<Modal message = "Hey, I m a prop value"/>
+<!-- Import the content of the Modal component and set a props of the component -->
+<Modal message = "Hey, I m a prop value" {showModal}/>
 {#if num > 5}
 	<p>Greater than 20</p>
 {/if}
 <main>
+	<button on:click={()=> toggleModal()}>Open Modal</button>
 	{#each people as person (person.name)}
 		
 	<div>
