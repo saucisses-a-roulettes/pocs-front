@@ -1,11 +1,12 @@
 <script>
+	// Import component to use it in the root component
 	import Modal from './Modal.svelte';
 	let people = [
 		{name: 'Gael', beltcolour: 'black', age: 17, id: 1},
 		{name: 'William', beltcolour: 'black', age: 24, id: 2},
 		{name: 'Martin', beltcolour: 'black', age: 18, id: 3}
 	];
-	let num = 5;
+	let num = 5; 
 // used in Inline function
 const handleClick = (e,id) => {
 	people = people.filter((person) => person.id != id)
@@ -33,7 +34,7 @@ const handleClick = (e,id) => {
 //   };
 </script>
 <!-- Import the content of the Modal component -->
-<Modal/>
+<Modal message = "Hey, I m a prop value"/>
 {#if num > 5}
 	<p>Greater than 20</p>
 {/if}

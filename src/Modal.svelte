@@ -1,10 +1,11 @@
 <script>
     let showModal = true;
+    export let message = "default";
 </script>
 {#if showModal}
 <div class="backdrop">
     <div class="modal">
-        <p>Sign up for offers! bitches </p>
+        <p>{message}</p>
     </div>
 </div>
 {/if}
