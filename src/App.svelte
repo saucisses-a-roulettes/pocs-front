@@ -4,6 +4,11 @@
 		{name: 'William', beltcolour: 'black', age: 24, id: 2},
 		{name: 'Martin', beltcolour: 'black', age: 23, id: 3}
 	];
+// used in Inline function
+const handleClick = (e,id) => {
+	people = people.filter((person) => person.id != id)
+	console.log(e);
+}
 //   let firstName = 'Julien';
 //   let lastName = 'Grob';
 //   let beltColour = 'black'
@@ -27,12 +32,18 @@
 </script>
 
 <main>
-	{#each people as person (person.id)}
+	{#each people as person (person.name)}
 		
 	<div>
 		<h4>{person.name}</h4>
-		<p>{person.age} years old, {person.beltColour} belt.</p>
+		<p>{person.age} years old, {person.beltcolour} belt.</p>
+		<!-- In line function in the button click event -->
+		<button on:click={(e)=>
+			handleClick(e,person.id)
+		}>Delete</button>
 	  </div>
+	{:else}
+	<p>They are no people to show...</p>
 	  {/each}
 	<!-- <h1>Hello {name}!</h1> -->
 	<!-- <p style ="color: {beltColour}">{firstName} {lastName} - {beltColour} belt</p>
@@ -52,7 +63,7 @@
 		margin: 0 auto;
 	}
 
-	h1 {
+	h4 {
 		color: #ff3e00;
 		text-transform: uppercase;
 		font-size: 4em;
