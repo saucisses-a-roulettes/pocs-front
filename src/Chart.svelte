@@ -60,7 +60,7 @@
   </script>
   <h1>Votre budget mensuel est de: <bind:value>{monthlyBudget}</bind:value> Euros
   </h1>
-  <h2>Pub budget represent <bind:value>{pubBudgetPourc}</bind:value> % of the total budget</h2>
+  <h2>Pub budget represent <bind:value>{(pubBudget/monthlyBudget)*100}</bind:value> % of the total budget</h2>
     <canvas id="myChart" width="400" height="400"></canvas>
   
   <button on:click={() => updateChartData()}>Update charts data</button>
